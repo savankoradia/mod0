@@ -5,6 +5,11 @@ var express = require("express"),
 	session = require('express-session');
 var app     = express();
 var routeObj = {};
+var fs = require('fs');
+
+var settings = {
+	theme: "tw"
+};
 
 // All environments
 app.set("port", 80);
@@ -53,8 +58,13 @@ function executeMethod (req, res) {
 		var controller = require(controllerFile);
 		var responseObject = controller[methodName](req, res);
 		if (routeData.view) {
-			var renderFile = path.resolve("./" + routeData.module + "/view/" + routeData.view);
-			res.render(renderFile, responseObject);
+			var renderFile = path.resolve("./themes/" + settings.theme + "/" + routeData.module + "/view/" + routeData.view);
+			fs.access(renderFile, function (err) {
+				if (err) {
+					renderFile = path.resolve("./" + routeData.module + "/view/" + routeData.view);
+				}
+				res.render(renderFile, responseObject);
+			});
 		} else {
 			res.send(responseObject);
 		}
