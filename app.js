@@ -7,9 +7,7 @@ var app     = express();
 var routeObj = {};
 var fs = require('fs');
 
-var settings = {
-	theme: "tw"
-};
+var settings = require('./global_settings').settings;
 
 // All environments
 app.set("port", 80);
