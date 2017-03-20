@@ -4,12 +4,11 @@ exports.initRoutes = function(app, modules){
     if (modules) {
         modules.forEach(function(module, index){
             try {
-                var moduleRoute = require(path.resolve("./" + module + "/router")).routes;
+                var moduleRoute = require(path.resolve("./modules/" + module + "/router")).routes;
                 for (var routeKey in moduleRoute) {
                     var routeData = moduleRoute[routeKey];
                     routeData.module = module;
                     routeObj[routeKey] = routeData;
-                    //app[routeData.method](routeKey, function(){});
                 }
             } catch (e) {
                 console.error("Module '" + module + "' doesn't contain any route.");
