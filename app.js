@@ -8,11 +8,10 @@ var routeObj = {};
 var fs = require('fs');
 
 var settings = require('./core/settings').settings;
-console.log(settings);
 
 // All environments
-app.set("port", 80);
-app.set("view engine", "ejs");
+app.set("port", settings.global.port);
+app.set("view engine", settings.theme.viewEngine);
 app.use(express.favicon());
 app.use(express.logger("dev"));
 app.use(express.bodyParser());
@@ -77,5 +76,5 @@ initRoutes();
 
 // Run server
 http.createServer(app).listen(app.get("port"), function() {
-	console.log("Homeland server listening on port " + app.get("port"));
+	console.log(settings.global.serverName + " server listening on port " + app.get("port"));
 });
