@@ -7,7 +7,8 @@ var app     = express();
 var routeObj = {};
 var fs = require('fs');
 
-var settings = require('./global_settings').settings;
+var settings = require('./core/settings').settings;
+console.log(settings);
 
 // All environments
 app.set("port", 80);
@@ -56,7 +57,7 @@ function executeMethod (req, res) {
 		var controller = require(controllerFile);
 		var responseObject = controller[methodName](req, res);
 		if (routeData.view) {
-			var renderFile = path.resolve("./themes/" + settings.theme + "/" + routeData.module + "/view/" + routeData.view);
+			var renderFile = path.resolve("./themes/" + settings.theme.themeName + "/" + routeData.module + "/view/" + routeData.view);
 			fs.access(renderFile, function (err) {
 				if (err) {
 					renderFile = path.resolve("./" + routeData.module + "/view/" + routeData.view);
