@@ -1,4 +1,5 @@
 exports.settings = {
     port: 80,
-    serverName: "HomeLand"
+    serverName: "HomeLand",
+    displayServerConsole: true
 };

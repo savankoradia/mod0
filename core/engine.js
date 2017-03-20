@@ -8,3 +8,11 @@ exports.init = function(express, app, settings){
         app[routeData.method](routeKey, methods.executeMethod);
     }
 };
+
+exports.up = function(http, app, settings){
+    http.createServer(app).listen(app.get("port"), function() {
+        if (settings.global.displayServerConsole) {
+            console.log(settings.global.serverName + " server listening on port " + app.get("port"));
+        }
+    });
+};
