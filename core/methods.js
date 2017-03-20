@@ -20,6 +20,7 @@ exports.executeMethod = function(req, res){
                 var responseObject = controller[methodName](req, res);
                 if (routeData.view) {
                     templates.getTemplate(settingsData, routeData, function(renderFile){
+                        responseObject.paths = settingsData.paths;
                         res.render(renderFile, responseObject);
                     });
                 } else {
