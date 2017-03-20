@@ -7,7 +7,7 @@ var fs = require('fs');
  * @param callback
  */
 exports.getTemplate = function(settingsData, routeData, callback){
-    var overloadingFile = path.resolve("./themes/" + settingsData.theme.themeName + "/" + routeData.module + "/view/" + routeData.view);
+    var overloadingFile = path.resolve("./templates/" + settingsData.theme.themeName + "/" + routeData.module + "/view/" + routeData.view);
     var moduleFile = path.resolve("./modules/" + routeData.module + "/view/" + routeData.view);
 
     //return module file overloading is disabled
@@ -23,4 +23,4 @@ exports.getTemplate = function(settingsData, routeData, callback){
             callback(overloadingFile);
         }
     });
-}
+};

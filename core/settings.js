@@ -4,7 +4,7 @@ var modules = require("./../settings/modules").modules;
 var path = require("path");
 
 var publicDir = "./public/";
-var themeDir = "./themes/" + themeSettings.themeName + "/";
+var themeDir = "./templates/" + themeSettings.themeName + "/";
 exports.settings = {
     theme: themeSettings,
     global: globalSettings,
@@ -12,16 +12,12 @@ exports.settings = {
     paths: {
         theme: {
             dir: getPath(themeDir),
-            template: getPath(themeDir + "templates"),
-            js: getPath(themeDir + "javascripts"),
-            css: getPath(themeDir + "stylesheets"),
-            images: getPath(themeDir + "images")
+            js: "/" + themeSettings.themeName + "/javascripts/",
+            css: "/" + themeSettings.themeName + "/stylesheets/",
+            images: "/" + themeSettings.themeName + "/images/"
         },
         public: {
-            dir: getPath(publicDir),
-            js: getPath(publicDir + "javascripts"),
-            css: getPath(publicDir + "stylesheets"),
-            images: getPath(publicDir + "images")
+            dir: getPath(publicDir)
         }
     }
 };
