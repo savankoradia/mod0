@@ -1,5 +1,5 @@
 exports.settings = {
-    themeName: "default",
-    enableOverloading: false, //disable if overloading not required.
+    themeName: "material",
+    enableOverloading: true, //disable if overloading not required.
     viewEngine: "ejs"
 };
