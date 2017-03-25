@@ -3,7 +3,7 @@ exports.execute = function(eventType, req, res, other){
     for (var hookKey in hooks) {
         var hook = require(hooks[hookKey]);
         if (hook[eventType] != "undefined") {
-            hook[eventType](req,res);
+            hook[eventType](req,res, other);
         }
     }
 };
