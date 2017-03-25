@@ -20,7 +20,8 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.errorHandler());
 app.use(session({secret:'rtg8458hzs@#$22'})); //change secret
-
+GLOBAL.settings = settings;
+GLOBAL.rootDir = path.resolve(__dirname);
 
 var engine = require("./core/engine");
 engine.init(express, app, settings);

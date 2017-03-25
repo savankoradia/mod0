@@ -20,7 +20,7 @@ exports.getController = function(settingsData, routeData, callback){
         if (err) {
             callback(moduleFile);
         } else {
-            callback(overloadingFile);
+            callback(overloadingFile, moduleFile);
         }
     });
 }

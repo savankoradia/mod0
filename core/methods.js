@@ -13,10 +13,11 @@ exports.set = function(routeObj, settings){
 exports.executeMethod = function(req, res){
     try {
         var routeData = routeObjects[req.route.path];
-        controllers.getController(settingsData, routeData, function(controllerFile){
+        controllers.getController(settingsData, routeData, function(controllerFile, moduleFile){
             var methodName = routeData.execute.action;
             var controller = require(controllerFile);
             if (typeof controller[methodName] != "undefined") {
+                req.parentFile = moduleFile;
                 var responseObject = controller[methodName](req, res);
                 if (routeData.view) {
                     templates.getTemplate(settingsData, routeData, function(renderFile){
