@@ -1,45 +1,50 @@
 <!doctype html>
 <html lang="en">
 <%- include(paths.theme.dir + "/header.ejs") %>
-<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3><%=pageTitle%></h3>
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
-        </div>
-    </header>
-    <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="overview">
-            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <div class="mdl-card mdl-cell mdl-cell--12-col">
-                    <div class="mdl-card__supporting-text">
-                        <h4><%=messageTitle%></h4>
-                        <%=message%>
-                    </div>
-                </div>
-            </section>
-            <section class="section--footer mdl-color--white mdl-grid">
-                <% _.each(news, function(newsData, newsKey) { %>
-                    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                        <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
-                    </div>
-                    <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                        <h5><%=newsData.title%></h5>
-                        <%=newsData.details%>
-                    </div>
-                <% }); %>
-            </section>
-        </div>
-        <%- include(paths.theme.dir + "/footer.ejs") %>
-    </main>
-</div>
+<title><%=pageTitle%></title>
+<body>
 
+<div class="container">
+
+    <!-- The justified navigation menu is meant for single line per list item.
+         Multiple lines will require custom code not provided by Bootstrap. -->
+    <div class="masthead">
+        <h3 class="text-muted"><%=pageTitle%></h3>
+        <nav>
+            <ul class="nav nav-justified">
+                <li class="active"><a href="#">Overview</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1><%=messageTitle%></h1>
+        <p class="lead"><%=message%></p>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <% _.each(news, function(newsData, newsKey) { %>
+            <div class="col-lg-4">
+                <h2><%=newsData.title%></h2>
+                <p><%=newsData.details%></p>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Site footer -->
+    <%- include(paths.theme.dir + "/footer.ejs") %>
+
+</div> <!-- /container -->
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

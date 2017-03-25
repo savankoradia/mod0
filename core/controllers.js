@@ -7,7 +7,7 @@ var fs = require('fs');
  * @param callback
  */
 exports.getController = function(settingsData, routeData, callback){
-    var overloadingFile = path.resolve("./themes/" + settingsData.theme.themeName + "/" + routeData.module + "/controller/" + routeData.execute.controller);
+    var overloadingFile = path.resolve("./templates/" + settingsData.theme.themeName + "/" + routeData.module + "/controller/" + routeData.execute.controller);
     var moduleFile = path.resolve("./modules/" + routeData.module + "/controller/" + routeData.execute.controller);
 
     //return module file overloading is disabled
