@@ -23,4 +23,4 @@ exports.getController = function(settingsData, routeData, callback){
             callback(overloadingFile, moduleFile);
         }
     });
-}
+};

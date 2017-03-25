@@ -1,5 +1,7 @@
 var _ = require('underscore');
+var hook = require(GLOBAL.rootDir + "/library/hook");
 exports.index = function(req, res){
+    hook.execute("beforeEnter");
     var returnObject = {
         _:_,
         pageTitle: "Welcome to Node+Express",
