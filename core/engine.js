@@ -18,4 +18,5 @@ exports.up = function(http, app, settings){
     });
 };
 
-database.connection();
+database.connection(settings);
+database.generateModels();

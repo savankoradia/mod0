@@ -1,7 +1,8 @@
 var _ = require('underscore');
 var hook = require(GLOBAL.rootDir + "/library/hook");
+//var User = require("./../model/User");
 exports.index = function(req, res){
-    hook.execute("beforeEnter");
+    //hook.execute("beforeEnter");
     var returnObject = {
         _:_,
         pageTitle: "Welcome to Node+Express",
@@ -18,5 +19,22 @@ exports.index = function(req, res){
             }
         ]
     };
+
+    //var newUser = GLOBAL.model.User({
+    //    name: "OMG!!!"
+    //});
+    //
+    //newUser.save(function(err){
+    //    console.log("Error", err);
+	    GLOBAL.model.User.find({}, function(err, users){
+            if (err) {
+                console.log("Error", err);
+            } else {
+                console.log("Users", users);
+            }
+        });
+    //});
+
+
     return returnObject;
 };

@@ -13,7 +13,50 @@ Aim of this project to ease work of developer and achieve more better performanc
    |-view: This directory contains all views for controller action.<br>
    |---|-view.ejs<br>
    |-router.js: This file contains routes for specific module.<br>
-   
+
+#Database Operations
+
+1. Specify connection:<br>
+   <b>Path:</b> projectRoot > settings > db.js
+    ```
+    exports.db = {
+            host: "localhost",
+            port: 27017,
+            username: "",
+            password: "",
+            database: "mod0"
+    };
+    ```
+
+2. Sample model:
+    ```
+    var mongoose = require("mongoose");
+    var schema = mongoose.Schema;
+    var userSchema = new schema({
+        name: String,
+        location: String,
+        created_at: Date,
+        updated_at: Date
+    });
+    var User = mongoose.model("User", userSchema);
+    module.exports = User;
+    ```
+
+3. How to use?
+    ```
+    GLOBAL.model.User.find({}, function(err, users){
+        //handle error and response
+    });
+
+    var newUser = GLOBAL.model.User({
+        name: "User Name"
+    });
+
+    newUser.save(function(err){
+        //handle response
+    });
+    ```
+
 # Contribution:
 This project is started as an experiment. All enthusiastic developers are requested to contribute and share ideas to make it more better.
 To contribute on this project, you can fork this repo and create PR.
