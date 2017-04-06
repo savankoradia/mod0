@@ -18,15 +18,17 @@ exports.executeMethod = function(req, res){
             var controller = require(controllerFile);
             if (typeof controller[methodName] != "undefined") {
                 req.parentFile = moduleFile;
-                var responseObject = controller[methodName](req, res);
-                if (routeData.view) {
-                    templates.getTemplate(settingsData, routeData, function(renderFile){
-                        responseObject.paths = settingsData.paths;
-                        res.render(renderFile, responseObject);
-                    });
-                } else {
-                    res.send(responseObject);
-                }
+
+                controller[methodName](req, res, function(responseObject){
+                    if (routeData.view) {
+                        templates.getTemplate(settingsData, routeData, function(renderFile){
+                            responseObject.paths = settingsData.paths;
+                            res.render(renderFile, responseObject);
+                        });
+                    } else {
+                        res.send(responseObject);
+                    }
+                });
             } else {
                 res.send("Action not found");
             }

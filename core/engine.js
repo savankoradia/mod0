@@ -1,5 +1,6 @@
 var routes = require("./routes");
 var methods = require("./methods");
+var database = require("./database");
 exports.init = function(express, app, settings){
     var routeObjects = routes.initRoutes(app, settings.modules);
     methods.set(routeObjects, settings);
@@ -16,3 +17,6 @@ exports.up = function(http, app, settings){
         }
     });
 };
+
+database.connection(settings);
+database.generateModels();
