@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var hook = require(GLOBAL.rootDir + "/library/hook");
-//var User = require("./../model/User");
+
 exports.index = function(req, res, callback){
     //hook.execute("beforeEnter");
 
