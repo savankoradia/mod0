@@ -11,7 +11,7 @@ Aim of this project to ease work of developer and achieve more better performanc
 6. Templates: Contains all controllers and templates that can be override form original module. It follows modules directory structure.
 7. app.js: The main heart of the application which triggers all code and events.
 
-#Module Structure
+# Module Structure
 ```
 ModuleName
    |-controller: This directory contains all controllers for this module.
@@ -26,7 +26,7 @@ ModuleName
    |-router.js: contains routes for specific module.
 ```
 
-#Database Operations
+# Database Operations
 1. Specify connection:<br>
    <b>Path:</b> projectRoot > settings > db.js
     ```
