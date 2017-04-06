@@ -1,5 +1,5 @@
 exports.routes = {
-	"/" : {
+	"/blog" : {
 		view: "blog.ejs",
 		method: "get",
 		execute: {

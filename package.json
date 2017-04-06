@@ -10,6 +10,8 @@
     "express": "3.2.0",
     "express-session": "^1.15.1",
     "forever": "^0.15.3",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.2",
     "underscore": "^1.8.3"
   },
   "author": "Savan Koradia <koradia.savan@gmail.com>",
