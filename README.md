@@ -74,6 +74,6 @@ To contribute on this project, you can fork this repo and create PR.
 
 # Contact:
 Mail: koradia.savan@gmail.com<br>
-Site: <a href="http://savankoadia.com">Website</a><br>
+Site: <a href="http://savankoradia.com">Website</a><br>
 Skype: skoradia1991<br>
 Phone: +91-9428233422<br>
