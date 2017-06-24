@@ -1,6 +1,7 @@
 {
   "name": "mode0",
   "version": "0.0.1",
+  "public": true,
   "scripts": {
     "start": "node app.js"
   },
