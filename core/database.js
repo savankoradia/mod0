@@ -5,6 +5,9 @@ var fs = require('fs');
 var path = require('path');
 
 exports.connection = function (settings) {
+	if (!dbConfig.enabled) {
+		return;
+	}
 	settingsData = settings;
 	var credentialString = dbConfig.username + ":" + dbConfig.password;
 	var connectionString = "mongodb://";
@@ -17,6 +20,9 @@ exports.connection = function (settings) {
 };
 
 exports.generateModels = function(){
+	if (!dbConfig.enabled) {
+		return;
+	}
 	if (GLOBAL.DB && settingsData.modules) {
 		GLOBAL['model'] = [];
 		settingsData.modules.forEach(function(module){
