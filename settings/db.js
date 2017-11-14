@@ -4,4 +4,5 @@ exports.db = {
         username: "",
         password: "",
         database: "mod0"
+        enabled: false
 };
